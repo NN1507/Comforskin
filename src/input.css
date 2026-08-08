@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brand-50:  #f2f8ed;
+  --color-brand-100: #e2f0d7;
+  --color-brand-300: #b8d99a;
+  --color-brand-600: #8ec06c;
+  --color-brand-700: #6ea354;
+  --color-brand-900: #3d5a2a;
+
+  --color-accent-500: #537b35;
+  --color-accent-700: #2a5934;
+
+  --color-ink:     #000000;
+  --color-muted:   #c0c0c0;
+  --color-surface: #fff9ea;
+  --color-line:    #537b35;
+
+  --font-display: "Castoro Titling", "Milonga", system-ui, sans-serif;
+  --font-body:    "Libertinus Sans", system-ui, sans-serif;
+
+  --radius-card: 0.875rem; /* 14px */
+}
