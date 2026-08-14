@@ -20,7 +20,7 @@
   --font-display: "Pinyon Script", system-ui, sans-serif;
   --font-body:    "Gowun Batang", system-ui, sans-serif;
 
-  --radius-card: 0.875rem; /* 14px */
+  --radius-card: 0.875rem;
   --radius-pill: 999px;
 }
 
