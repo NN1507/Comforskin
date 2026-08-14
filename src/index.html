@@ -51,7 +51,7 @@
       <ul class="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
   <li class="font-semibold text-brand-700">Kiểm tra</li>
   <li class="font-semibold text-brand-700">Sản phẩm tiêu biểu</li>
-  <li class="font-semibold text-brand-700">Theo dõi</li>
+  <li class="font-semibold text-brand-700">Chu trình theo dõi</li>
       </ul>
     </section>
     
@@ -115,23 +115,33 @@
     </section>
 
     <!-- 5. CẢM NHẬN -->
-    <section aria-labelledby="cam-nhan-title">
-      <h2 id="cam-nhan-title">Người dùng nói gì</h2>
-      <ul>
-        <li>
-          <blockquote>
-            <p>Câu cảm nhận của người dùng 1 về trải nghiệm tư vấn.</p>
-          </blockquote>
-          <p>Tên người dùng 1</p>
-        </li>
-        <li>
-          <blockquote>
-            <p>Câu cảm nhận của người dùng 2 về trải nghiệm tư vấn.</p>
-          </blockquote>
-          <p>Tên người dùng 2</p>
-        </li>
-      </ul>
-    </section>
+  <section aria-labelledby="cam-nhan-title" class="section">
+  <h2 id="cam-nhan-title" class="font-display text-3xl text-brand-900">Người dùng nói gì</h2>
+  <ul class="mt-14 grid gap-6 sm:grid-cols-2">
+    <li>
+      <figure class="card flex h-full flex-col">
+        <blockquote class="flex-1 text-lg text-ink">
+          Câu cảm nhận của người dùng 1 về trải nghiệm tư vấn.
+        </blockquote>
+        <figcaption class="mt-6">
+          <span class="font-semibold text-ink">Tên người dùng 1</span>
+          <cite class="not-italic block text-sm text-muted">Chức danh, đơn vị</cite>
+        </figcaption>
+      </figure>
+    </li>
+    <li>
+      <figure class="card flex h-full flex-col">
+        <blockquote class="flex-1 text-lg text-ink">
+          Câu cảm nhận của người dùng 2 về trải nghiệm tư vấn.
+        </blockquote>
+        <figcaption class="mt-6">
+          <span class="font-semibold text-ink">Tên người dùng 2</span>
+          <cite class="not-italic block text-sm text-muted">Chức danh, đơn vị</cite>
+        </figcaption>
+      </figure>
+    </li>
+  </ul>
+</section>
 
     <!-- 6. CÁC MỨC TƯ VẤN -->
     <section aria-labelledby="goi-title">
@@ -157,6 +167,27 @@
         </li>
       </ul>
     </section>
+    <section aria-labelledby="so-lieu-title" class="section">
+  <h2 id="so-lieu-title" class="font-display text-3xl text-brand-900">Con số nói lên điều gì</h2>
+  <dl class="mt-14 grid grid-cols-2 divide-x divide-line/20 sm:grid-cols-4">
+    <div class="text-center">
+      <dt class="order-2 mt-2 text-sm text-muted">Người dùng đã tư vấn</dt>
+      <dd class="font-display text-4xl font-extrabold text-brand-600">4.200</dd>
+    </div>
+    <div class="text-center">
+      <dt class="order-2 mt-2 text-sm text-muted">Khảo sát hoàn thành</dt>
+      <dd class="font-display text-4xl font-extrabold text-brand-600">6.800</dd>
+    </div>
+    <div class="text-center">
+      <dt class="order-2 mt-2 text-sm text-muted">Đánh giá 5 sao</dt>
+      <dd class="font-display text-4xl font-extrabold text-brand-600">92%</dd>
+    </div>
+    <div class="text-center">
+      <dt class="order-2 mt-2 text-sm text-muted">Thời gian trung bình</dt>
+      <dd class="font-display text-4xl font-extrabold text-brand-600">3 phút</dd>
+    </div>
+  </dl>
+</section>
 
     <!-- 7. FAQ -->
     <section id="cau-hoi" aria-labelledby="faq-title">
@@ -168,11 +199,11 @@
         </li>
         <li>
           <h3>Kết quả phân tích da có chính xác không?</h3>
-          <p>Nội dung câu trả lời cho câu hỏi này.</p>
+          <p>Nội dung.</p>
         </li>
         <li>
           <h3>Tôi cần chuẩn bị gì trước khi khảo sát?</h3>
-          <p>Nội dung câu trả lời cho câu hỏi này.</p>
+          <p>Nội dung.</p>
         </li>
       </ul>
     </section>
