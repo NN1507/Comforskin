@@ -10,15 +10,50 @@
   --color-brand-900: #3d5a2a;
 
   --color-accent-500: #537b35;
-  --color-accent-700: #2a5934;
+  --color-accent-800: #2a5934;
 
   --color-ink:     #000000;
-  --color-muted:   #c0c0c0;
+  --color-muted:   #535353;
   --color-surface: #fff9ea;
   --color-line:    #537b35;
 
-  --font-display: "Castoro Titling", "Milonga", system-ui, sans-serif;
-  --font-body:    "Libertinus Math", system-ui, sans-serif;
+  --font-display: "Pinyon Script", system-ui, sans-serif;
+  --font-body:    "Gowun Batang", system-ui, sans-serif;
 
   --radius-card: 0.875rem; /* 14px */
+  --radius-pill: 999px;
+}
+
+@layer components {
+  .section {
+    @apply mx-auto w-full max-w-6xl px-5 py-20 lg:py-28;
+  }
+
+  .eyebrow {
+    @apply font-display text-xs font-semibold uppercase tracking-[0.18em] text-brand-600;
+  }
+
+  .card {
+    @apply rounded-card border border-line/20 bg-surface p-6;
+  }
+
+  .feature-icon {
+    @apply grid h-11 w-11 place-items-center rounded-lg bg-brand-50 text-brand-600;
+  }
+
+  .feature-title {
+    @apply mt-4 text-lg font-semibold text-ink;
+  }
+
+  .feature-desc {
+    @apply mt-2 text-muted;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-pill
+           px-5 py-2.5 text-sm font-semibold transition-colors
+           disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary { @apply bg-brand-600 text-white hover:bg-brand-700; }
+  .btn-outline { @apply border border-line text-ink hover:bg-brand-50; }
 }
