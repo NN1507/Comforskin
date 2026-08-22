@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Castoro+Titling&family=Dancing+Script:wght@400..700&family=Libertinus+Math&family=Milonga&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <title>Liên hệ — ComforSkin</title>
+  <link rel="stylesheet" href="../dist/output.css" />
+</head>
+<body>
+  <a href="#main">ComforSkin</a>
+
+  <header class="border-b border-line/20 dark:border-line-invert">
+    <nav aria-label="Điều hướng chính" class="section flex items-center justify-between py-4">
+      <a href="./index.html" class="font-display text-xl text-brand-700 no-underline">ComforSkin</a>
+      <ul class="hidden lg:flex items-center gap-8">
+        <li><a href="./index.html#tinh-nang" class="text-body no-underline hover:text-brand-600">Tính năng</a></li>
+        <li><a href="./index.html#quy-trinh" class="text-body no-underline hover:text-brand-600">Quy trình tư vấn</a></li>
+        <li><a href="./pricing.html" class="text-body no-underline hover:text-brand-600">Bảng giá</a></li>
+        <li><a href="./contact.html" class="text-body no-underline hover:text-brand-600">Liên hệ</a></li>
+      </ul>
+      <button class="lg:hidden btn btn-outline">Menu</button>
+      <a href="./contact.html" class="btn btn-primary hidden lg:inline-flex">Bắt đầu tư vấn</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO NGẮN -->
+    <section aria-labelledby="contact-hero-title" class="section text-center">
+      <span class="eyebrow">Liên hệ</span>
+      <h1 id="contact-hero-title" class="mt-3 font-display text-4xl text-brand-900 lg:text-5xl dark:text-brand-300">
+        Bắt đầu tư vấn cùng ComforSkin
+      </h1>
+      <p class="mt-4 text-body-muted">
+        Điền thông tin bên dưới, đội ngũ của chúng tôi sẽ liên hệ lại trong 24 giờ.
+      </p>
+    </section>
+
+    <!-- FORM + THÔNG TIN LIÊN HỆ -->
+    <section aria-labelledby="form-title" class="section">
+      <div class="grid gap-12 lg:grid-cols-[1.4fr_1fr]">
+
+        <!-- FORM (tạm thời — sẽ hoàn thiện chuẩn tiếp cận đầy đủ ở Nhiệm vụ 5) -->
+        <form class="card space-y-6" novalidate>
+          <h2 id="form-title" class="text-xl font-semibold text-body">Thông tin liên hệ</h2>
+
+          <div>
+            <label class="field-label" for="ho-ten">Họ và tên</label>
+            <input class="field-input" id="ho-ten" name="hoTen" type="text" required autocomplete="name" />
+          </div>
+
+          <div>
+            <label class="field-label" for="email">Email</label>
+            <input class="field-input" id="email" name="email" type="email" required autocomplete="email" />
+          </div>
+
+          <div>
+            <label class="field-label" for="dien-thoai">Số điện thoại</label>
+            <input class="field-input" id="dien-thoai" name="dienThoai" type="tel" required />
+          </div>
+
+          <div>
+            <label class="field-label" for="goi-tu-van">Mức tư vấn quan tâm</label>
+            <select class="field-input" id="goi-tu-van" name="goiTuVan">
+              <option value="co-ban">Cơ bản</option>
+              <option value="chuyen-sau">Chuyên sâu</option>
+              <option value="dong-hanh">Đồng hành</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="field-label" for="loi-nhan">Nội dung cần tư vấn</label>
+            <textarea class="field-input" id="loi-nhan" name="loiNhan" rows="4"></textarea>
+          </div>
+
+          <div class="flex items-start gap-2">
+            <input id="dong-y" name="dongY" type="checkbox" required class="mt-1" />
+            <label class="field-label font-normal" for="dong-y">
+              Tôi đồng ý để ComforSkin liên hệ lại theo thông tin đã cung cấp.
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-full">Gửi thông tin</button>
+        </form>
+
+        <!-- THÔNG TIN LIÊN HỆ + SAU KHI GỬI -->
+        <div class="space-y-8">
+          <div class="card">
+            <h2 class="text-xl font-semibold text-body">Thông tin liên hệ</h2>
+            <ul class="mt-4 space-y-2 text-sm text-body-muted">
+              <li>123 Đường ABC, Q.1, TP.HCM</li>
+              <li>hello@comforskin.vn</li>
+              <li>Thứ 2 – Thứ 6, 9:00 – 18:00</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h2 class="text-xl font-semibold text-body">Sau khi gửi thì sao?</h2>
+            <p class="mt-4 text-sm text-body-muted">
+              Chúng tôi xem lại thông tin bạn cung cấp và liên hệ lại qua email hoặc điện thoại trong vòng 24 giờ làm việc để sắp xếp buổi tư vấn phù hợp.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-line/20 dark:border-line-invert">
+    <div class="section grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <a href="./index.html" class="font-display text-xl text-brand-700 no-underline">ComforSkin</a>
+        <p class="mt-4 text-sm text-body-muted">Tư vấn chăm sóc da dựa trên tình trạng thật của bạn, không gắn với sản phẩm cụ thể.</p>
+      </div>
+
+      <nav aria-labelledby="footer-san-pham">
+        <h3 id="footer-san-pham" class="font-semibold text-body">Sản phẩm</h3>
+        <ul class="mt-4 space-y-2 text-sm text-body-muted">
+          <li><a href="./index.html#tinh-nang" class="hover:text-brand-600">Tính năng</a></li>
+          <li><a href="./index.html#quy-trinh" class="hover:text-brand-600">Quy trình tư vấn</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="footer-ho-tro">
+        <h3 id="footer-ho-tro" class="font-semibold text-body">Hỗ trợ</h3>
+        <ul class="mt-4 space-y-2 text-sm text-body-muted">
+          <li><a href="./index.html#cau-hoi" class="hover:text-brand-600">Câu hỏi thường gặp</a></li>
+          <li><a href="#" class="hover:text-brand-600">Điều khoản</a></li>
+          <li><a href="#" class="hover:text-brand-600">Bảo mật</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="footer-lien-he">
+        <h3 id="footer-lien-he" class="font-semibold text-body">Liên hệ</h3>
+        <ul class="mt-4 space-y-2 text-sm text-body-muted">
+          <li>123 Đường ABC, Q.1, TP.HCM</li>
+          <li>hello@comforskin.vn</li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="border-t border-line/20 dark:border-line-invert py-6 text-center text-sm text-body-muted">
+      © 2026 ComforSkin. Đã đăng ký bản quyền.
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Castoro+Titling&family=Dancing+Script:wght@400..700&family=Libertinus+Math&family=Milonga&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <title>Bảng giá — ComforSkin</title>
+  <link rel="stylesheet" href="../dist/output.css" />
+</head>
+<body>
+  <a href="#main">ComforSkin</a>
+
+  <header class="border-b border-line/20 dark:border-line-invert">
+    <nav aria-label="Điều hướng chính" class="section flex items-center justify-between py-4">
+      <a href="./index.html" class="font-display text-xl text-brand-700 no-underline">ComforSkin</a>
+      <ul class="hidden lg:flex items-center gap-8">
+        <li><a href="./index.html#tinh-nang" class="text-body no-underline hover:text-brand-600">Tính năng</a></li>
+        <li><a href="./index.html#quy-trinh" class="text-body no-underline hover:text-brand-600">Quy trình tư vấn</a></li>
+        <li><a href="./pricing.html" class="text-body no-underline hover:text-brand-600">Bảng giá</a></li>
+        <li><a href="./contact.html" class="text-body no-underline hover:text-brand-600">Liên hệ</a></li>
+      </ul>
+      <button class="lg:hidden btn btn-outline">Menu</button>
+      <a href="./contact.html" class="btn btn-primary hidden lg:inline-flex">Bắt đầu tư vấn</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO NGẮN -->
+    <section aria-labelledby="pricing-hero-title" class="section text-center">
+      <span class="eyebrow">Bảng giá</span>
+      <h1 id="pricing-hero-title" class="mt-3 font-display text-4xl text-brand-900 lg:text-5xl dark:text-brand-300">
+        Chọn mức tư vấn phù hợp với bạn
+      </h1>
+      <p class="mt-4 text-body-muted">
+        Không có chi phí ẩn. Bạn có thể đổi gói hoặc huỷ bất cứ lúc nào.
+      </p>
+    </section>
+
+    <!-- CÁC MỨC TƯ VẤN (đầy đủ, 3 gói) -->
+    <section aria-labelledby="goi-title" class="section">
+      <h2 id="goi-title" class="section-title">Các mức tư vấn</h2>
+
+      <ul class="mt-14 grid items-stretch gap-6 lg:grid-cols-3">
+        <!-- Gói Cơ bản -->
+        <li class="card flex h-full flex-col">
+          <h3 class="text-xl font-semibold text-body">Cơ bản</h3>
+          <p class="mt-2 text-body-muted">Phân tích da nhanh, gợi ý tổng quát.</p>
+          <p class="mt-6"><span class="font-display text-3xl font-extrabold text-brand-900 dark:text-brand-300">Miễn phí</span></p>
+          <ul class="mt-6 flex-1 space-y-2 text-sm text-body-muted">
+            <li>Khảo sát da 5 phút</li>
+            <li>Gợi ý quy trình chăm sóc cơ bản</li>
+            <li>Không lưu lịch sử theo dõi</li>
+          </ul>
+          <a href="./contact.html" class="btn btn-outline mt-auto">Chọn gói này</a>
+        </li>
+
+        <!-- Gói Chuyên sâu — nổi bật -->
+        <li class="card relative flex h-full flex-col ring-2 ring-brand-600">
+          <span class="badge absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap">
+            Được chọn nhiều nhất
+          </span>
+          <h3 class="text-xl font-semibold text-body">Chuyên sâu</h3>
+          <p class="mt-2 text-body-muted">Phân tích chi tiết, theo dõi định kỳ.</p>
+          <p class="mt-6">
+            <span class="font-display text-3xl font-extrabold text-brand-900 dark:text-brand-300">99.000₫</span>
+            <span class="text-sm text-body-muted">/tháng</span>
+          </p>
+          <ul class="mt-6 flex-1 space-y-2 text-sm text-body-muted">
+            <li>Khảo sát da đầy đủ</li>
+            <li>Theo dõi thay đổi hàng tháng</li>
+            <li>Dùng thử miễn phí tháng đầu tiên</li>
+          </ul>
+          <a href="./contact.html" class="btn btn-primary mt-auto">Chọn gói này</a>
+        </li>
+
+        <!-- Gói Đồng hành -->
+        <li class="card flex h-full flex-col">
+          <h3 class="text-xl font-semibold text-body">Đồng hành</h3>
+          <p class="mt-2 text-body-muted">Theo dõi sát sao cùng gợi ý cá nhân hoá.</p>
+          <p class="mt-6">
+            <span class="font-display text-3xl font-extrabold text-brand-900 dark:text-brand-300">199.000₫</span>
+            <span class="text-sm text-body-muted">/tháng</span>
+          </p>
+          <ul class="mt-6 flex-1 space-y-2 text-sm text-body-muted">
+            <li>Mọi quyền lợi của gói Chuyên sâu</li>
+            <li>Nhắc lịch chăm sóc hàng tuần</li>
+            <li>Ưu tiên phản hồi trong 24 giờ</li>
+          </ul>
+          <a href="./contact.html" class="btn btn-outline mt-auto">Chọn gói này</a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- BẢNG SO SÁNH TÍNH NĂNG -->
+    <section aria-labelledby="so-sanh-title" class="section">
+      <h2 id="so-sanh-title" class="section-title">So sánh chi tiết</h2>
+      <p class="mt-2 text-sm text-body-muted lg:hidden">Vuốt ngang để xem hết bảng.</p>
+
+      <div class="mt-8 overflow-x-auto">
+        <table class="min-w-[720px] w-full border-collapse text-left text-sm">
+          <thead>
+            <tr class="border-b border-line/20 dark:border-line-invert">
+              <th scope="col" class="py-3 pr-4 font-semibold text-body">Tính năng</th>
+              <th scope="col" class="py-3 px-4 font-semibold text-body">Cơ bản</th>
+              <th scope="col" class="py-3 px-4 font-semibold text-body">Chuyên sâu</th>
+              <th scope="col" class="py-3 pl-4 font-semibold text-body">Đồng hành</th>
+            </tr>
+          </thead>
+          <tbody class="text-body-muted">
+            <tr class="border-b border-line/10 dark:border-line-invert/50">
+              <th scope="row" class="py-3 pr-4 font-normal text-body">Khảo sát tình trạng da</th>
+              <td class="py-3 px-4">Nhanh (5 phút)</td>
+              <td class="py-3 px-4">Đầy đủ</td>
+              <td class="py-3 pl-4">Đầy đủ</td>
+            </tr>
+            <tr class="border-b border-line/10 dark:border-line-invert/50">
+              <th scope="row" class="py-3 pr-4 font-normal text-body">Theo dõi thay đổi theo thời gian</th>
+              <td class="py-3 px-4">—</td>
+              <td class="py-3 px-4">Hàng tháng</td>
+              <td class="py-3 pl-4">Hàng tuần</td>
+            </tr>
+            <tr class="border-b border-line/10 dark:border-line-invert/50">
+              <th scope="row" class="py-3 pr-4 font-normal text-body">Gợi ý quy trình cá nhân hoá</th>
+              <td class="py-3 px-4">Tổng quát</td>
+              <td class="py-3 px-4">Chi tiết</td>
+              <td class="py-3 pl-4">Chi tiết + cập nhật liên tục</td>
+            </tr>
+            <tr class="border-b border-line/10 dark:border-line-invert/50">
+              <th scope="row" class="py-3 pr-4 font-normal text-body">Thời gian phản hồi hỗ trợ</th>
+              <td class="py-3 px-4">Không hỗ trợ riêng</td>
+              <td class="py-3 px-4">48 giờ</td>
+              <td class="py-3 pl-4">24 giờ</td>
+            </tr>
+            <tr>
+              <th scope="row" class="py-3 pr-4 font-normal text-body">Dùng thử miễn phí</th>
+              <td class="py-3 px-4">—</td>
+              <td class="py-3 px-4">Tháng đầu tiên</td>
+              <td class="py-3 pl-4">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FAQ VỀ THANH TOÁN -->
+    <section id="cau-hoi-thanh-toan" aria-labelledby="faq-payment-title" class="section">
+      <div class="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
+        <div>
+          <h2 id="faq-payment-title" class="section-title">Câu hỏi về thanh toán</h2>
+          <p class="mt-4 text-body-muted">Một vài thắc mắc thường gặp trước khi bạn chọn gói.</p>
+        </div>
+        <ul class="space-y-8">
+          <li>
+            <h3 class="font-semibold text-body">Tôi có thể huỷ gói bất cứ lúc nào không?</h3>
+            <p class="mt-2 text-body-muted">Có. Bạn có thể huỷ trước kỳ thanh toán tiếp theo, không mất phí phát sinh.</p>
+          </li>
+          <li>
+            <h3 class="font-semibold text-body">Tháng dùng thử miễn phí có tự động thu phí sau đó không?</h3>
+            <p class="mt-2 text-body-muted">Chúng tôi sẽ nhắc bạn trước khi tháng dùng thử kết thúc để bạn chủ động quyết định.</p>
+          </li>
+          <li>
+            <h3 class="font-semibold text-body">Có thể chuyển đổi giữa các gói không?</h3>
+            <p class="mt-2 text-body-muted">Có, bạn có thể nâng hoặc hạ gói bất cứ lúc nào từ trang liên hệ.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-line/20 dark:border-line-invert">
+    <div class="section grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <a href="./index.html" class="font-display text-xl text-brand-700 no-underline">ComforSkin</a>
+        <p class="mt-4 text-sm text-body-muted">Tư vấn chăm sóc da dựa trên tình trạng thật của bạn, không gắn với sản phẩm cụ thể.</p>
+      </div>
+
+      <nav aria-labelledby="footer-san-pham">
+        <h3 id="footer-san-pham" class="font-semibold text-body">Sản phẩm</h3>
+        <ul class="mt-4 space-y-2 text-sm text-body-muted">
+          <li><a href="./index.html#tinh-nang" class="hover:text-brand-600">Tính năng</a></li>
+          <li><a href="./index.html#quy-trinh" class="hover:text-brand-600">Quy trình tư vấn</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="footer-ho-tro">
+        <h3 id="footer-ho-tro" class="font-semibold text-body">Hỗ trợ</h3>
+        <ul class="mt-4 space-y-2 text-sm text-body-muted">
+          <li><a href="./index.html#cau-hoi" class="hover:text-brand-600">Câu hỏi thường gặp</a></li>
+          <li><a href="#" class="hover:text-brand-600">Điều khoản</a></li>
+          <li><a href="#" class="hover:text-brand-600">Bảo mật</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="footer-lien-he">
+        <h3 id="footer-lien-he" class="font-semibold text-body">Liên hệ</h3>
+        <ul class="mt-4 space-y-2 text-sm text-body-muted">
+          <li>123 Đường ABC, Q.1, TP.HCM</li>
+          <li>hello@comforskin.vn</li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="border-t border-line/20 dark:border-line-invert py-6 text-center text-sm text-body-muted">
+      © 2026 ComforSkin. Đã đăng ký bản quyền.
+    </div>
+  </footer>
+
+</body>
+</html>

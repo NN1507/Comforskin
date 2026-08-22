@@ -8,17 +8,93 @@
   --color-brand-600: #8ec06c;
   --color-brand-700: #6ea354;
   --color-brand-900: #3d5a2a;
-
   --color-accent-500: #537b35;
-  --color-accent-700: #2a5934;
-
-  --color-ink:     #000000;
-  --color-muted:   #c0c0c0;
+  --color-accent-800: #2a5934;
+  --color-ink:     #12211d;
+  --color-muted:   #535353;
   --color-surface: #fff9ea;
   --color-line:    #537b35;
+  --color-ink-invert:     #eaf2ee;
+  --color-muted-invert:   #b7c4bd;
+  --color-surface-dark:   #10261a;
+  --color-line-invert:    #3a5a44;
+  --font-display: "Pinyon Script", system-ui, sans-serif;
+  --font-body:    "Gowun Batang", system-ui, sans-serif;
+  --radius-card: 0.875rem;
+  --radius-pill: 999px;
+}
 
-  --font-display: "Castoro Titling", "Milonga", system-ui, sans-serif;
-  --font-body:    "Libertinus Math", system-ui, sans-serif;
+body {
+  @apply bg-surface text-ink dark:bg-surface-dark dark:text-ink-invert transition-colors;
+}
 
-  --radius-card: 0.875rem; /* 14px */
+@layer components {
+  .section {
+    @apply mx-auto w-full max-w-6xl px-5 py-20 lg:py-28;
+  }
+
+  .eyebrow {
+    @apply font-display text-xs font-semibold uppercase tracking-[0.18em] text-brand-600;
+  }
+
+  .section-title {
+    @apply font-display text-3xl text-brand-900 dark:text-brand-300;
+  }
+
+  .text-body {
+    @apply text-ink dark:text-ink-invert;
+  }
+
+  .text-body-muted {
+    @apply text-muted dark:text-muted-invert;
+  }
+
+  .card {
+    @apply rounded-card border border-line/20 bg-surface p-6
+           dark:border-line-invert dark:bg-surface-dark dark:text-ink-invert;
+  }
+
+  .feature-icon {
+    @apply grid h-11 w-11 place-items-center rounded-lg bg-brand-50 text-brand-600
+           dark:bg-brand-900/40;
+  }
+
+  .feature-title {
+    @apply mt-4 text-lg font-semibold text-ink dark:text-ink-invert;
+  }
+
+  .feature-desc {
+    @apply mt-2 text-muted dark:text-muted-invert;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-pill
+           px-5 py-2.5 text-sm font-semibold transition-colors
+           disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+     @apply bg-brand-600 text-white hover:bg-brand-700; }
+  .btn-outline {
+    @apply border border-line text-ink hover:bg-brand-50
+           dark:border-line-invert dark:text-ink-invert dark:hover:bg-brand-900/30;
+  }
+
+  .badge {
+    @apply rounded-pill bg-brand-600 px-3 py-1 text-xs font-semibold text-white;
+  }
+
+  .field-label {
+    @apply block text-sm font-medium text-ink dark:text-ink-invert;
+  }
+
+  .field-input {
+    @apply mt-1.5 w-full rounded-lg border border-line/40 bg-surface px-3 py-2 text-sm
+           text-ink placeholder:text-muted
+           focus:outline-none focus:ring-2 focus:ring-brand-600
+           dark:border-line-invert dark:bg-surface-dark dark:text-ink-invert;
+  }
+
+  .field-error {
+    @apply mt-1.5 text-xs text-red-600 empty:hidden;
+  }
 }
