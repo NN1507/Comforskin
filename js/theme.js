@@ -2,27 +2,35 @@ const KEY = "theme";
 
 export function initTheme() {
   const btn = document.getElementById("nut-nen-toi");
+  const root = document.documentElement;
+
   if (!btn) return;
 
-  const root = document.documentElement;
-  const isDark = () => root.classList.contains("dark");
+  function setTheme(theme) {
+    const isDark = theme === "dark";
 
-  sync();
+    root.classList.toggle("dark", isDark);
+    localStorage.setItem(KEY, theme);
+
+    btn.textContent = isDark ? "Nền sáng" : "Nền tối";
+    btn.setAttribute("aria-pressed", String(isDark));
+    btn.setAttribute(
+      "aria-label",
+      isDark ? "Chuyển sang nền sáng" : "Chuyển sang nền tối"
+    );
+  }
 
   btn.addEventListener("click", () => {
-    root.classList.toggle("dark");
-    localStorage.setItem(KEY, isDark() ? "dark" : "light");
-    sync();
+    const isDark = root.classList.contains("dark");
+
+    setTheme(isDark ? "light" : "dark");
   });
 
-  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
-    if (localStorage.getItem(KEY)) return;
-    root.classList.toggle("dark", e.matches);
-    sync();
-  });
+  const saved = localStorage.getItem(KEY);
 
-  function sync() {
-    btn.setAttribute("aria-pressed", isDark());
-    btn.setAttribute("aria-label", isDark() ? "Chuyển sang nền sáng" : "Chuyển sang nền tối");
+  if (saved === "dark") {
+    setTheme("dark");
+  } else {
+    setTheme("light");
   }
 }
