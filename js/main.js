@@ -5,11 +5,13 @@ import { initPricing } from "./pricing.js";
 import { initSlider } from "./slider.js";
 import { initReveal } from "./reveal.js";
 
-initNav();
-initHeaderOnScroll();
-initToTop();
-initTheme();
-initFaq();
-initPricing();
-initSlider();
-initReveal();
+document.addEventListener("DOMContentLoaded", () => {
+  initTheme();
+  try { initNav(); } catch (e) {}
+  try { initHeaderOnScroll(); } catch (e) {}
+  try { initToTop(); } catch (e) {}
+  try { initFaq(); } catch (e) {}
+  try { initPricing(); } catch (e) {}
+  try { initSlider(); } catch (e) {}
+  try { initReveal(); } catch (e) {}
+});

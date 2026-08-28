@@ -6,8 +6,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Castoro+Titling&family=Dancing+Script:wght@400..700&family=Libertinus+Math&family=Milonga&family=Pinyon+Script&display=swap" rel="stylesheet">
-  <title>Bảng giá — ComforSkin</title>
+   <title>Bảng giá — ComforSkin</title>
   <link rel="stylesheet" href="../dist/output.css" />
+
+  <script>
+    (function () {
+      const saved = localStorage.getItem("theme");
+      const dark = saved
+        ? saved === "dark"
+        : window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.classList.toggle("dark", dark);
+    })();
+  </script>
 </head>
 <body>
   <a href="#main">ComforSkin</a>
@@ -21,8 +31,15 @@
         <li><a href="./pricing.html" class="text-body no-underline hover:text-brand-600">Bảng giá</a></li>
         <li><a href="./contact.html" class="text-body no-underline hover:text-brand-600">Liên hệ</a></li>
       </ul>
-      <button class="lg:hidden btn btn-outline">Menu</button>
-      <a href="./contact.html" class="btn btn-primary hidden lg:inline-flex">Bắt đầu tư vấn</a>
+
+      <div class="flex items-center gap-3">
+        <button id="nut-nen-toi" type="button" class="btn btn-outline" aria-pressed="false" aria-label="Chuyển sang nền tối">
+          Nền tối
+        </button>
+
+        <button class="lg:hidden btn btn-outline">Menu</button>
+        <a href="./contact.html" class="btn btn-primary hidden lg:inline-flex">Bắt đầu tư vấn</a>
+      </div>
     </nav>
   </header>
 
@@ -209,5 +226,6 @@
     </div>
   </footer>
 
+  <script type="module" src="./js/main.js"></script>
 </body>
 </html>

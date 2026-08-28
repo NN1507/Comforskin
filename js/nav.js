@@ -22,13 +22,12 @@ export function initNav() {
   });
 
   document.addEventListener("click", (e) => {
-    if (isOpen()) return;
-    if (e.target.closest("header"))  return;
-
-      setOpen(false);
+    if (!isOpen()) return;
+    if (e.target.closest("header")) return;
+    setOpen(false);
   });
 
-   const desktop = window.matchMedia("(min-width: 1024px)");
+  const desktop = window.matchMedia("(min-width: 1024px)");
   desktop.addEventListener("change", (e) => {
     if (e.matches) setOpen(false);
   });
