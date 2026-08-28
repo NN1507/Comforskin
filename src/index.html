@@ -3,38 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Castoro+Titling&family=Dancing+Script:wght@400..700&family=Libertinus+Math&family=Milonga&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Castoro+Titling&family=Dancing+Script:wght@400..700&family=Libertinus+Math&family=Milonga&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Pinyon+Script&display=swap" rel="stylesheet">
   <title>ComforSkin — Tư vấn da của bạn</title>
   <link rel="stylesheet" href="../dist/output.css" />
+  
+  <!-- Anti-FOUC script cho Dark Mode nằm trong head -->
+  <script>
+    (function () {
+      const saved = localStorage.getItem("theme");
+      const dark = saved
+        ? saved === "dark"
+        : window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.classList.toggle("dark", dark);
+    })();
+  </script>
 </head>
-<body>
-  <a href="#main">ComforSkin</a>
 
-  <header class="border-b border-line/20">
-  <nav aria-label="Điều hướng chính" class="section flex items-center justify-between py-4">
-    <a href="#" class="font-display text-xl text-brand-700 no-underline">ComforSkin</a>
-    <ul class="hidden md:flex items-center gap-8">
-      <li><a href="#tinh-nang" class="text-ink no-underline hover:text-brand-600">Tính năng</a></li>
-      <li><a href="#quy-trinh" class="text-ink no-underline hover:text-brand-600">Quy trình tư vấn</a></li>
-      <li><a href="#cau-hoi" class="text-ink no-underline hover:text-brand-600">Câu hỏi thường gặp</a></li>
-    </ul>
-    <button class="md:hidden btn btn-outline">Menu</button>
-    <a href="#bat-dau" class="btn btn-primary hidden md:inline-flex">Bắt đầu tư vấn</a>
-  </nav>
-</header>
+<body class="font-body">
+  <!-- Sentinel theo dõi vị trí cuộn cho IntersectionObserver -->
+  <div id="nav-sentinel"></div>
+
+  <a href="#main" class="sr-only">Chuyển đến nội dung chính</a>
+
+  <header class="border-b border-line/20 dark:border-line-invert sticky top-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur transition-shadow">
+    <nav aria-label="Điều hướng chính" class="section flex items-center justify-between py-4">
+      <a href="#" class="font-display text-xl text-brand-700 no-underline">ComforSkin</a>
+
+      <ul class="hidden lg:flex items-center gap-8">
+        <li><a href="#tinh-nang" class="text-body no-underline hover:text-brand-600">Tính năng</a></li>
+        <li><a href="#quy-trinh" class="text-body no-underline hover:text-brand-600">Quy trình tư vấn</a></li>
+        <li><a href="#goi-dich-vu" class="text-body no-underline hover:text-brand-600">Gói dịch vụ</a></li>
+        <li><a href="#cau-hoi" class="text-body no-underline hover:text-brand-600">Câu hỏi thường gặp</a></li>
+      </ul>
+
+      <div class="flex items-center gap-3">
+        <!-- Nút Dark Mode -->
+        <button id="nut-nen-toi" type="button" class="btn btn-outline" aria-pressed="false" aria-label="Chuyển sang nền tối">
+          Nền tối
+        </button>
+
+        <!-- Nút Toggle Menu Mobile -->
+        <button 
+          type="button" 
+          class="lg:hidden btn btn-outline" 
+          aria-controls="nav-mobile" 
+          aria-expanded="false" 
+          aria-label="Mở menu"
+        >
+          Menu
+        </button>
+        
+        <a href="#bat-dau" class="btn btn-primary hidden lg:inline-flex">Bắt đầu tư vấn</a>
+      </div>
+    </nav>
+
+    <!-- Khung Menu Mobile -->
+    <div id="nav-mobile" class="hidden lg:hidden section py-4 border-t border-line/20">
+      <ul class="flex flex-col gap-4">
+        <li><a href="#tinh-nang" class="text-body no-underline hover:text-brand-600">Tính năng</a></li>
+        <li><a href="#quy-trinh" class="text-body no-underline hover:text-brand-600">Quy trình tư vấn</a></li>
+        <li><a href="#goi-dich-vu" class="text-body no-underline hover:text-brand-600">Gói dịch vụ</a></li>
+        <li><a href="#cau-hoi" class="text-body no-underline hover:text-brand-600">Câu hỏi thường gặp</a></li>
+        <li><a href="#bat-dau" class="btn btn-primary text-center">Bắt đầu tư vấn</a></li>
+      </ul>
+    </div>
+  </header>
 
   <main id="main">
 
     <!-- 1. HERO -->
- <section aria-labelledby="hero-title" class="section grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
+    <section aria-labelledby="hero-title" class="section grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
       <div>
-        <h1 id="hero-title" class="font-display text-4xl leading-tight text-brand-900 lg:text-5xl">
+        <h1 id="hero-title" class="font-display text-4xl leading-tight text-brand-900 lg:text-5xl dark:text-brand-300">
           Hiểu làn da của bạn, trước khi chọn bất kỳ sản phẩm nào
         </h1>
-        <p class="mt-6 color-muted">
+
+        <p class="mt-6 text-body-muted">
           ComforSkin phân tích tình trạng da của bạn và gợi ý hướng chăm sóc phù hợp.
+        </p>
+
         <div class="mt-8 flex flex-wrap gap-4">
           <a href="#bat-dau" class="btn btn-primary">Tư vấn miễn phí</a>
           <a href="#quy-trinh" class="btn btn-outline">Xem quy trình</a>
@@ -42,209 +91,326 @@
       </div>
 
       <div>
-        <img src="./assets/img/hero-skin-consult.jpg" alt="Minh hoạ tư vấn chăm sóc da" class="w-full rounded-card" />
+        <img src="./assets/img/hero-skin-consult.jpg" alt="Minh hoạ tư vấn chăm sóc da" class="w-full aspect-[4/3] rounded-card object-cover" />
       </div>
     </section>
 
-  <!-- 2. DẢI LOGO  -->
+    <!-- 2. DẢI LOGO -->
     <section aria-labelledby="logo-title" class="section">
       <ul class="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
-  <li class="font-semibold text-brand-700">Kiểm tra</li>
-  <li class="font-semibold text-brand-700">Sản phẩm tiêu biểu</li>
-  <li class="font-semibold text-brand-700">Chu trình theo dõi</li>
-      </ul>
-    </section>
-    
-<!-- 3. TÍNH NĂNG -->
-    <section id="tinh-nang" aria-labelledby="tinh-nang-title" class="section">
-      <h2 id="tinh-nang-title" class="font-display text-3xl text-brand-900">ComforSkin giúp bạn những gì</h2>
-      <ul class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <li class="card">
-          <span class="grid h-11 w-11 place-items-center rounded-lg bg-brand-50 text-brand-600">
-            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <circle cx="12" cy="12" r="9" />
-              <circle cx="12" cy="12" r="4" />
-            </svg>
-          </span>
-          <h3 class="mt-4 font-semibold">Phân tích tình trạng da</h3>
-          <p class="mt-2 color-muted">Trả lời vài câu hỏi ngắn, nhận đánh giá về loại da và các vấn đề đang gặp.</p>
-        </li>
-
-        <li class="card">
-          <span class="grid h-11 w-11 place-items-center rounded-lg bg-brand-50 text-brand-600">
-            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M12 2L2 7l10 5 10-5-10-5z" />
-              <path d="M2 17l10 5 10-5" />
-              <path d="M2 12l10 5 10-5" />
-            </svg>
-          </span>
-          <h3 class="mt-4 font-semibold">Gợi ý hướng chăm sóc</h3>
-          <p class="mt-2 color-muted">Đề xuất quy trình dưỡng da phù hợp, không gắn với sản phẩm cụ thể nào.</p>
-        </li>
-
-        <li class="card">
-          <span class="grid h-11 w-11 place-items-center rounded-lg bg-brand-50 text-brand-600">
-            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M3 3v18h18" />
-              <path d="M18 9l-5 5-4-4-3 3" />
-            </svg>
-          </span>
-          <h3 class="mt-4 font-semibold">Theo dõi thay đổi</h3>
-          <p class="mt-2 color-muted">Ghi lại tình trạng da theo thời gian để thấy rõ hiệu quả chăm sóc.</p>
-        </li>
+        <li class="font-semibold text-brand-700 dark:text-brand-300">Kiểm tra</li>
+        <li class="font-semibold text-brand-700 dark:text-brand-300">Sản phẩm tiêu biểu</li>
+        <li class="font-semibold text-brand-700 dark:text-brand-300">Chu trình theo dõi</li>
       </ul>
     </section>
 
-    <!-- 4. QUY TRÌNH TƯ VẤN -->
-    <section id="quy-trinh" aria-labelledby="quy-trinh-title">
-      <h2 id="quy-trinh-title">Quy trình tư vấn 3 bước</h2>
-      <ul>
-        <li>
-          <h3>1. Trả lời khảo sát da</h3>
-          <p>Vài câu hỏi về tình trạng da và thói quen sinh hoạt.</p>
-        </li>
-        <li>
-          <h3>2. Nhận phân tích</h3>
-          <p>Hệ thống đưa ra đánh giá loại da và các vấn đề cần lưu ý.</p>
-        </li>
-        <li>
-          <h3>3. Nhận gợi ý chăm sóc</h3>
-          <p>Hướng dẫn quy trình dưỡng da phù hợp với tình trạng của bạn.</p>
-        </li>
-      </ul>
-    </section>
+    <!-- 3. TÍNH NĂNG -->
+<section id="tinh-nang" aria-labelledby="tinh-nang-title" class="section">
+  <h2 id="tinh-nang-title" class="section-title">ComforSkin giúp bạn những gì</h2>
 
-    <!-- 5. CẢM NHẬN -->
-  <section aria-labelledby="cam-nhan-title" class="section">
-  <h2 id="cam-nhan-title" class="font-display text-3xl text-brand-900">Người dùng nói gì</h2>
-  <ul class="mt-14 grid gap-6 sm:grid-cols-2">
-    <li>
-      <figure class="card flex h-full flex-col">
-        <blockquote class="flex-1 text-lg text-ink">
-          Câu cảm nhận của người dùng 1 về trải nghiệm tư vấn.
-        </blockquote>
-        <figcaption class="mt-6">
-          <span class="font-semibold text-ink">Tên người dùng 1</span>
-          <cite class="not-italic block text-sm text-muted">Chức danh, đơn vị</cite>
-        </figcaption>
-      </figure>
+  <ul class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <li class="card" data-reveal>
+      <span class="feature-icon">
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" />
+          <circle cx="12" cy="12" r="4" />
+        </svg>
+      </span>
+      <h3 class="feature-title">Phân tích tình trạng da</h3>
+      <p class="feature-desc">Trả lời vài câu hỏi ngắn, nhận đánh giá về loại da và các vấn đề đang gặp.</p>
     </li>
-    <li>
-      <figure class="card flex h-full flex-col">
-        <blockquote class="flex-1 text-lg text-ink">
-          Câu cảm nhận của người dùng 2 về trải nghiệm tư vấn.
-        </blockquote>
-        <figcaption class="mt-6">
-          <span class="font-semibold text-ink">Tên người dùng 2</span>
-          <cite class="not-italic block text-sm text-muted">Chức danh, đơn vị</cite>
-        </figcaption>
-      </figure>
+
+    <li class="card" data-reveal>
+      <span class="feature-icon">
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M12 2L2 7l10 5 10-5-10-5z" />
+          <path d="M2 17l10 5 10-5" />
+          <path d="M2 12l10 5 10-5" />
+        </svg>
+      </span>
+      <h3 class="feature-title">Gợi ý hướng chăm sóc</h3>
+      <p class="feature-desc">Đề xuất quy trình dưỡng da phù hợp, không gắn với sản phẩm cụ thể nào.</p>
+    </li>
+
+    <li class="card" data-reveal>
+      <span class="feature-icon">
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M3 3v18h18" />
+          <path d="M18 9l-5 5-4-4-3 3" />
+        </svg>
+      </span>
+      <h3 class="feature-title">Theo dõi thay đổi</h3>
+      <p class="feature-desc">Ghi lại tình trạng da theo thời gian để thấy rõ hiệu quả chăm sóc.</p>
     </li>
   </ul>
 </section>
 
-    <!-- 6. CÁC MỨC TƯ VẤN -->
-    <section aria-labelledby="goi-title" class="section">
-      <h2 id="goi-title" class="font-display text-3xl text-brand-900">Các mức tư vấn</h2>
+    <!-- 4. QUY TRÌNH -->
+<section id="quy-trinh" aria-labelledby="quy-trinh-title" class="section">
+  <h2 id="quy-trinh-title" class="section-title">Quy trình tư vấn 3 bước</h2>
 
-      <ul class="mt-14 grid items-stretch gap-6 lg:grid-cols-2">
-        <!-- Gói Cơ bản -->
-        <li class="card flex h-full flex-col">
-          <h3 class="text-xl font-semibold text-ink">Cơ bản</h3>
-          <p class="mt-2 text-muted">Phân tích da nhanh, gợi ý tổng quát.</p>
-          <ul class="mt-6 flex-1 space-y-2 text-sm text-muted">
-            <li>Khảo sát da 5 phút</li>
-            <li>Gợi ý quy trình chăm sóc cơ bản</li>
-          </ul>
-          <a href="#" class="btn btn-outline mt-auto">Chọn gói này</a>
-        </li>
+  <ul class="mt-14 grid gap-6 sm:grid-cols-3">
+    <li class="card" data-reveal>
+      <span class="eyebrow">Bước 1</span>
+      <h3 class="feature-title">Trả lời khảo sát da</h3>
+      <p class="feature-desc">Vài câu hỏi về tình trạng da và thói quen sinh hoạt.</p>
+    </li>
 
-        <!-- Gói Chuyên sâu — nổi bật -->
-        <li class="card relative flex h-full flex-col ring-2 ring-brand-600">
-          <span class="badge absolute -top-3 left-6 rounded-pill bg-brand-600 px-3 py-1 text-xs font-semibold text-white">
-            Được chọn nhiều nhất
-          </span>
-          <h3 class="text-xl font-semibold text-ink">Chuyên sâu</h3>
-          <p class="mt-2 text-muted">Phân tích chi tiết, theo dõi định kỳ.</p>
-          <ul class="mt-6 flex-1 space-y-2 text-sm text-muted">
-            <li>Khảo sát da đầy đủ</li>
-            <li>Theo dõi thay đổi hàng tháng</li>
-            <li>Dùng thử miễn phí tháng đầu tiên</li>
-          </ul>
-          <a href="#" class="btn btn-primary mt-auto">Chọn gói này</a>
-        </li>
-      </ul>
-    </section>
-    <section aria-labelledby="so-lieu-title" class="section">
-  <h2 id="so-lieu-title" class="font-display text-3xl text-brand-900">Con số nói lên điều gì</h2>
-  <dl class="mt-14 grid grid-cols-2 divide-x divide-line/20 sm:grid-cols-4">
-    <div class="text-center">
-      <dt class="order-2 mt-2 text-sm text-muted">Người dùng đã tư vấn</dt>
-      <dd class="font-display text-4xl font-extrabold text-brand-600">4.200</dd>
-    </div>
-    <div class="text-center">
-      <dt class="order-2 mt-2 text-sm text-muted">Khảo sát hoàn thành</dt>
-      <dd class="font-display text-4xl font-extrabold text-brand-600">6.800</dd>
-    </div>
-    <div class="text-center">
-      <dt class="order-2 mt-2 text-sm text-muted">Đánh giá 5 sao</dt>
-      <dd class="font-display text-4xl font-extrabold text-brand-600">92%</dd>
-    </div>
-    <div class="text-center">
-      <dt class="order-2 mt-2 text-sm text-muted">Thời gian trung bình</dt>
-      <dd class="font-display text-4xl font-extrabold text-brand-600">3 phút</dd>
-    </div>
-  </dl>
+    <li class="card" data-reveal>
+      <span class="eyebrow">Bước 2</span>
+      <h3 class="feature-title">Nhận phân tích</h3>
+      <p class="feature-desc">Hệ thống đưa ra đánh giá loại da và các vấn đề cần lưu ý.</p>
+    </li>
+
+    <li class="card" data-reveal>
+      <span class="eyebrow">Bước 3</span>
+      <h3 class="feature-title">Nhận gợi ý chăm sóc</h3>
+      <p class="feature-desc">Hướng dẫn quy trình dưỡng da phù hợp với tình trạng của bạn.</p>
+    </li>
+  </ul>
 </section>
-<!-- 7. FAQ -->
+
+    <!-- 5. CẢM NHẬN -->
+<section aria-labelledby="cam-nhan-title" class="section">
+  <h2 id="cam-nhan-title" class="section-title">Người dùng nói gì</h2>
+
+  <div id="slider-camnhan" class="mt-14 relative" tabindex="0">
+    <div class="overflow-hidden">
+      <div data-slider-track class="flex transition-transform duration-500">
+        <figure data-slide data-reveal class="card w-full shrink-0 flex flex-col">
+          <blockquote class="flex-1 text-lg text-body">
+            Câu cảm nhận của người dùng 1 về trải nghiệm tư vấn.
+          </blockquote>
+          <figcaption class="mt-6">
+            <span class="font-semibold text-body">Tên người dùng 1</span>
+            <cite class="not-italic block text-sm text-body-muted">Chức danh, đơn vị</cite>
+          </figcaption>
+        </figure>
+
+        <figure data-slide data-reveal class="card w-full shrink-0 flex flex-col">
+          <blockquote class="flex-1 text-lg text-body">
+            Câu cảm nhận của người dùng 2 về trải nghiệm tư vấn.
+          </blockquote>
+          <figcaption class="mt-6">
+            <span class="font-semibold text-body">Tên người dùng 2</span>
+            <cite class="not-italic block text-sm text-body-muted">Chức danh, đơn vị</cite>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <button type="button" data-slider-prev class="btn btn-outline absolute left-0 top-1/2 -translate-y-1/2" aria-label="Cảm nhận trước">‹</button>
+    <button type="button" data-slider-next class="btn btn-outline absolute right-0 top-1/2 -translate-y-1/2" aria-label="Cảm nhận sau">›</button>
+
+    <div data-slider-dots class="mt-6 flex justify-center gap-2"></div>
+  </div>
+</section>
+<!-- 6. CÁC MỨC TƯ VẤN (PRICING) -->
+<section id="goi-dich-vu" aria-labelledby="goi-title" class="section">
+  <div class="text-center">
+    <h2 id="goi-title" class="section-title">Các mức tư vấn</h2>
+    <p class="mt-4 text-body-muted">Chọn gói phù hợp với nhu cầu theo dõi làn da của bạn.</p>
+
+    <div class="mt-6 flex items-center justify-center gap-3">
+      <span class="text-sm font-medium text-body">Thanh toán theo tháng</span>
+      <button
+        id="cong-tac-gia"
+        type="button"
+        role="switch"
+        aria-checked="false"
+        aria-label="Công tắc chọn thanh toán tháng hoặc năm"
+        class="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-300 transition-colors aria-checked:bg-brand-600"
+      >
+        <span class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform translate-x-1 aria-checked:translate-x-6"></span>
+      </button>
+      <span class="text-sm font-medium text-body">Thanh toán theo năm</span>
+    </div>
+  </div>
+
+  <ul class="mt-14 grid items-stretch gap-6 lg:grid-cols-2">
+    <li class="card flex h-full flex-col" data-reveal>
+      <h3 class="text-xl font-semibold text-body">Cơ bản</h3>
+      <p class="mt-2 text-body-muted">Phân tích da nhanh, gợi ý tổng quát.</p>
+
+      <div class="my-6">
+        <span class="text-3xl font-bold text-brand-700" data-price data-monthly="150000" data-yearly="1440000">150.000 ₫</span>
+        <span class="text-body-muted" data-price-unit>/tháng</span>
+      </div>
+
+      <ul class="flex-1 space-y-2 text-sm text-body-muted">
+        <li>Khảo sát da 5 phút</li>
+        <li>Gợi ý quy trình chăm sóc cơ bản</li>
+      </ul>
+
+      <a href="#" class="btn btn-outline mt-8 text-center">Chọn gói này</a>
+    </li>
+
+    <li class="card relative flex h-full flex-col ring-2 ring-brand-600" data-reveal>
+      <span class="badge absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap">
+        Được chọn nhiều nhất
+      </span>
+
+      <h3 class="text-xl font-semibold text-body">Chuyên sâu</h3>
+      <p class="mt-2 text-body-muted">Phân tích chi tiết, theo dõi định kỳ.</p>
+
+      <div class="my-6">
+        <span class="text-3xl font-bold text-brand-700" data-price data-monthly="350000" data-yearly="3360000">350.000 ₫</span>
+        <span class="text-body-muted" data-price-unit>/tháng</span>
+      </div>
+
+      <ul class="flex-1 space-y-2 text-sm text-body-muted">
+        <li>Khảo sát da đầy đủ</li>
+        <li>Theo dõi thay đổi hàng tháng</li>
+        <li>Dùng thử miễn phí tháng đầu tiên</li>
+      </ul>
+
+      <a href="#" class="btn btn-primary mt-8 text-center">Chọn gói này</a>
+    </li>
+  </ul>
+</section>
+
+    <!-- 7. CON SỐ -->
+    <section aria-labelledby="so-lieu-title" class="section">
+      <h2 id="so-lieu-title" class="section-title">Con số nói lên điều gì</h2>
+
+      <dl class="mt-14 grid grid-cols-2 divide-x divide-y divide-line/20 sm:grid-cols-4 sm:divide-y-0">
+        <div class="text-center">
+          <dt class="order-2 mt-2 text-sm text-body-muted">Người dùng đã tư vấn</dt>
+          <dd class="font-display text-4xl font-extrabold text-brand-600">4.200</dd>
+        </div>
+
+        <div class="text-center">
+          <dt class="order-2 mt-2 text-sm text-body-muted">Khảo sát hoàn thành</dt>
+          <dd class="font-display text-4xl font-extrabold text-brand-600">6.800</dd>
+        </div>
+
+        <div class="text-center">
+          <dt class="order-2 mt-2 text-sm text-body-muted">Đánh giá 5 sao</dt>
+          <dd class="font-display text-4xl font-extrabold text-brand-600">92%</dd>
+        </div>
+
+        <div class="text-center">
+          <dt class="order-2 mt-2 text-sm text-body-muted">Thời gian trung bình</dt>
+          <dd class="font-display text-4xl font-extrabold text-brand-600">3 phút</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- 8. FAQ -->
     <section id="cau-hoi" aria-labelledby="faq-title" class="section">
       <div class="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
         <div>
-          <h2 id="faq-title" class="font-display text-3xl text-brand-900">Câu hỏi thường gặp</h2>
-          <p class="mt-4 text-muted">Một vài thắc mắc phổ biến trước khi bạn bắt đầu tư vấn cùng ComforSkin.</p>
+          <h2 id="faq-title" class="section-title">Câu hỏi thường gặp</h2>
+          <p class="mt-4 text-body-muted">
+            Một vài thắc mắc phổ biến trước khi bạn bắt đầu tư vấn cùng ComforSkin.
+          </p>
         </div>
-        <ul class="space-y-8">
-          <li>
-            <h3 class="font-semibold text-ink">ComforSkin có bán sản phẩm không?</h3>
-            <p class="mt-2 text-muted">Không. ComforSkin chỉ tư vấn và gợi ý hướng chăm sóc, không bán hàng.</p>
+
+        <ul class="space-y-4">
+          <li class="card">
+            <button 
+              type="button" 
+              id="faq-btn-1" 
+              data-faq-trigger 
+              aria-expanded="false" 
+              aria-controls="faq-panel-1" 
+              class="group flex w-full items-center justify-between text-left font-semibold text-body"
+            >
+              <span>ComforSkin có bán sản phẩm không?</span>
+              <span aria-hidden="true" class="transition-transform duration-200 group-aria-expanded:rotate-45">+</span>
+            </button>
+
+            <div 
+              id="faq-panel-1" 
+              role="region" 
+              aria-labelledby="faq-btn-1" 
+              hidden 
+              class="mt-2 text-body-muted"
+            >
+              <p>Không. ComforSkin chỉ tư vấn và gợi ý hướng chăm sóc, không bán hàng.</p>
+            </div>
           </li>
-          <li>
-            <h3 class="font-semibold text-ink">Kết quả phân tích da có chính xác không?</h3>
-            <p class="mt-2 text-muted">Nội dung.</p>
+
+          <li class="card">
+            <button 
+              type="button" 
+              id="faq-btn-2" 
+              data-faq-trigger 
+              aria-expanded="false" 
+              aria-controls="faq-panel-2" 
+              class="group flex w-full items-center justify-between text-left font-semibold text-body"
+            >
+              <span>Kết quả phân tích da có chính xác không?</span>
+              <span aria-hidden="true" class="transition-transform duration-200 group-aria-expanded:rotate-45">+</span>
+            </button>
+
+            <div 
+              id="faq-panel-2" 
+              role="region" 
+              aria-labelledby="faq-btn-2" 
+              hidden 
+              class="mt-2 text-body-muted"
+            >
+              <p>Kết quả được đưa ra dựa trên thông tin bạn cung cấp và chỉ mang tính chất tham khảo.</p>
+            </div>
           </li>
-          <li>
-            <h3 class="font-semibold text-ink">Tôi cần chuẩn bị gì trước khi khảo sát?</h3>
-            <p class="mt-2 text-muted">Nội dung.</p>
+
+          <li class="card">
+            <button 
+              type="button" 
+              id="faq-btn-3" 
+              data-faq-trigger 
+              aria-expanded="false" 
+              aria-controls="faq-panel-3" 
+              class="group flex w-full items-center justify-between text-left font-semibold text-body"
+            >
+              <span>Tôi cần chuẩn bị gì trước khi khảo sát?</span>
+              <span aria-hidden="true" class="transition-transform duration-200 group-aria-expanded:rotate-45">+</span>
+            </button>
+
+            <div 
+              id="faq-panel-3" 
+              role="region" 
+              aria-labelledby="faq-btn-3" 
+              hidden 
+              class="mt-2 text-body-muted"
+            >
+              <p>Bạn chỉ cần trả lời các câu hỏi về tình trạng da và thói quen chăm sóc hiện tại.</p>
+            </div>
           </li>
         </ul>
       </div>
     </section>
-<!-- 8. CTA -->
+
+    <!-- 9. CTA -->
     <section id="bat-dau" aria-labelledby="cta-title" class="section text-center">
-      <h2 id="cta-title" class="font-display text-3xl text-brand-900">Bắt đầu tìm hiểu làn da của bạn</h2>
-      <p class="mt-4 text-muted">Chỉ mất vài phút để có gợi ý chăm sóc phù hợp.</p>
-      <a href="#" class="btn btn-primary mt-8">Bắt đầu tư vấn miễn phí</a>
+      <h2 id="cta-title" class="section-title">Bắt đầu tìm hiểu làn da của bạn</h2>
+      <p class="mt-4 text-body-muted">Chỉ mất vài phút để có gợi ý chăm sóc phù hợp.</p>
+      <a href="#" class="btn btn-primary mt-8 inline-block">Bắt đầu tư vấn miễn phí</a>
     </section>
 
   </main>
-<footer class="border-t border-line/20">
-    <div class="section grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+
+  <footer class="border-t border-line/20 dark:border-line-invert">
+    <div class="section grid gap-10 sm:grid-cols-2 lg:grid-cols-4 py-12">
       <div>
         <a href="#" class="font-display text-xl text-brand-700 no-underline">ComforSkin</a>
-        <p class="mt-4 text-sm text-muted">Tư vấn chăm sóc da dựa trên tình trạng thật của bạn, không gắn với sản phẩm cụ thể.</p>
+        <p class="mt-4 text-sm text-body-muted">
+          Tư vấn chăm sóc da dựa trên tình trạng thật của bạn, không gắn với sản phẩm cụ thể.
+        </p>
       </div>
 
       <nav aria-labelledby="footer-san-pham">
-        <h3 id="footer-san-pham" class="font-semibold text-ink">Sản phẩm</h3>
-        <ul class="mt-4 space-y-2 text-sm text-muted">
+        <h3 id="footer-san-pham" class="font-semibold text-body">Sản phẩm</h3>
+        <ul class="mt-4 space-y-2 text-sm text-body-muted">
           <li><a href="#tinh-nang" class="hover:text-brand-600">Tính năng</a></li>
           <li><a href="#quy-trinh" class="hover:text-brand-600">Quy trình tư vấn</a></li>
         </ul>
       </nav>
 
       <nav aria-labelledby="footer-ho-tro">
-        <h3 id="footer-ho-tro" class="font-semibold text-ink">Hỗ trợ</h3>
-        <ul class="mt-4 space-y-2 text-sm text-muted">
+        <h3 id="footer-ho-tro" class="font-semibold text-body">Hỗ trợ</h3>
+        <ul class="mt-4 space-y-2 text-sm text-body-muted">
           <li><a href="#cau-hoi" class="hover:text-brand-600">Câu hỏi thường gặp</a></li>
           <li><a href="#" class="hover:text-brand-600">Điều khoản</a></li>
           <li><a href="#" class="hover:text-brand-600">Bảo mật</a></li>
@@ -252,18 +418,29 @@
       </nav>
 
       <nav aria-labelledby="footer-lien-he">
-        <h3 id="footer-lien-he" class="font-semibold text-ink">Liên hệ</h3>
-        <ul class="mt-4 space-y-2 text-sm text-muted">
+        <h3 id="footer-lien-he" class="font-semibold text-body">Liên hệ</h3>
+        <ul class="mt-4 space-y-2 text-sm text-body-muted">
           <li>123 Đường ABC, Q.1, TP.HCM</li>
           <li>hello@comforskin.vn</li>
         </ul>
       </nav>
     </div>
 
-    <div class="border-t border-line/20 py-6 text-center text-sm text-muted">
+    <div class="border-t border-line/20 dark:border-line-invert py-6 text-center text-sm text-body-muted">
       © 2026 ComforSkin. Đã đăng ký bản quyền.
     </div>
   </footer>
-  
+
+  <!-- Nút Lên đầu trang -->
+  <button 
+    id="nut-len-dau" 
+    type="button" 
+    aria-label="Lên đầu trang" 
+    class="fixed bottom-6 right-6 btn btn-primary p-3 rounded-full shadow-lg opacity-0 pointer-events-none transition-opacity duration-300 [&.is-visible]:opacity-100 [&.is-visible]:pointer-events-auto"
+  >
+    ↑
+  </button>
+
+  <script type="module" src="../js/main.js"></script>
 </body>
 </html>
